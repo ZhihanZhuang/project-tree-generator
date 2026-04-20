@@ -1,0 +1,14 @@
+.vscode/**
+src/**
+**/*.ts
+**/*.tsx
+**/*.map
+**/*.tsbuildinfo
+node_modules/**
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+tsconfig.json
+tsconfig.*.json
+

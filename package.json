@@ -1,0 +1,56 @@
+{
+  "name": "project-tree-generator-pro",
+  "displayName": "Project Tree Generator Pro",
+  "description": "TreeForge AI V2: preview a project tree, generate starter code, export to git, and apply chat-based modifications.",
+  "version": "2.0.0",
+  "publisher": "your-publisher-name",
+  "icon": "media/icon.svg",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Productivity"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "treeforge.open",
+        "title": "TreeForge AI: Open"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "treeforge.open",
+          "group": "navigation",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    }
+  },
+  "activationEvents": [
+    "onCommand:treeforge.open"
+  ],
+  "scripts": {
+    "build:webview": "npx esbuild src/webview/index.tsx --bundle --minify --sourcemap --outfile=media/webview.js --format=iife --platform=browser --target=es2020",
+    "typecheck:webview": "tsc -p tsconfig.webview.json --noEmit",
+    "compile": "npm run build:webview && tsc -p tsconfig.extension.json",
+    "watch": "tsc -watch -p ./",
+    "package": "npx @vscode/vsce package",
+    "publish": "npx @vscode/vsce publish"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.0.0"
+  }
+}
