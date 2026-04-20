@@ -1,4 +1,4 @@
-# TreeForge AI V2 (VS Code Extension)
+# TreeForge AI 
 
 Preview an AI-generated project tree, generate starter code into your workspace, export to git, and iterate via chat-style requests.
 
